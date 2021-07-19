@@ -17,7 +17,7 @@ pub struct Token {
     kind: TokenKind,
 }
 
-#[derive(Logos, Debug, PartialEq)]
+#[derive(Logos, Debug, PartialEq, Eq)]
 pub enum TokenKind {
     // -------------- Brackets ------------------
     #[token("(")]
@@ -37,11 +37,6 @@ pub enum TokenKind {
     // ------------- Data types ------------------
     #[regex("[a-zA-Z]+")]
     Str,
-
-    #[regex("[0-9]+", |lex| lex.slice().parse())]
-    // #[regex("[0-9]")]
-    // #[regex("[0-9]")]
-    Int(u64),
 
     #[token("a")]
     #[token("A")]
@@ -97,20 +92,20 @@ pub enum TokenKind {
     #[token("Z")]
     Char,
 
+    #[regex("[0-9]+")]
+    Int,
+
     #[regex("\\-?\\d+\\.\\d+")]
     Float,
-    //
-    //     #[regex(r#"'([^\\']|\\[nrt'"0])'"#, |lex| convert_chars(lex.slice(), 1).bytes().next().unwrap())]
-    //     #[regex("\\d")]
-    //     Char,
-    //
-    #[regex("_[^_c]")]
+
     #[token("true")]
     #[token("false")]
     Boolean,
 
     // --------------- Extras ---------------------
-    #[error]
     #[regex(r"[ \t\n\f]+", logos::skip)]
-    Undefined,
+    WhiteSpace,
+
+    #[error]
+    Error,
 }
