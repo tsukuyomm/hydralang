@@ -19,7 +19,7 @@ pub struct Token {
 
 #[derive(Logos, Debug, PartialEq, Eq)]
 pub enum TokenKind {
-    // -------------- Brackets ------------------
+    //===-------------- Brackets ------------------===
     #[token("(")]
     LeftParen,
 
@@ -34,7 +34,7 @@ pub enum TokenKind {
 
     #[token("\"")]
     Quote,
-    // ------------- Data types ------------------
+    //===------------- Data types ------------------===
     #[regex("[a-zA-Z]+")]
     Str,
 
@@ -102,8 +102,7 @@ pub enum TokenKind {
     #[token("false")]
     Boolean,
 
-    // ------------------- Symbols -------------------
-    // ===---------- Math Operators ----------------===
+    //===---------- Math Operators ----------------===
     #[token("+")]
     Plus,
 
@@ -151,7 +150,20 @@ pub enum TokenKind {
     #[token(">")]
     GreaterThan,
 
-    // --------------- Extras ---------------------
+    //===--------------- Keywords -----------------===
+    #[token("var")]
+    KwVar,
+
+    #[token("if")]
+    KwIf,
+
+    #[token("else")]
+    KwElse,
+
+    #[token("function")]
+    KwFn,
+
+    //===--------------- Extras ---------------------===
     #[regex(r"[ \t\n\f]+", logos::skip)]
     WhiteSpace,
 
