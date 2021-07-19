@@ -102,6 +102,20 @@ pub enum TokenKind {
     #[token("false")]
     Boolean,
 
+    // ------------------- Symbols -------------------
+    // ===---------- Math Operators ----------------===
+    #[token("+")]
+    Plus,
+
+    #[token("-")]
+    Minus,
+
+    #[token("*")]
+    Asterics,
+
+    #[token("/")]
+    Slash,
+
     // --------------- Extras ---------------------
     #[regex(r"[ \t\n\f]+", logos::skip)]
     WhiteSpace,
