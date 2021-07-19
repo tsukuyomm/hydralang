@@ -1,3 +1,4 @@
+// #[regex]
 //===----------------- lexer.rs - The file for lexical analysis --------------===//
 //
 // This source file is part of the hydralang open souce project
@@ -18,7 +19,7 @@ pub struct Token {
 
 #[derive(Logos, Debug, PartialEq)]
 pub enum TokenKind {
-    // Brackets
+    // -------------- Brackets ------------------
     #[token("(")]
     LeftParen,
 
@@ -30,32 +31,25 @@ pub enum TokenKind {
 
     #[token("}")]
     RightCurly,
+
     #[token("\"")]
     Quote,
-    // Data types
+    // ------------- Data types ------------------
     #[regex("[a-zA-Z]+")]
     Str,
+
     #[regex("\\d+")]
     Int,
+
     #[regex("\\-?\\d+\\.\\d+")]
     Float,
 
     #[token("true")]
     #[token("false")]
     Boolean,
-    // comments
-    //
-    //     #[regex("/\*([^*]|[\r\n]|(\*+([^*/]|[\r\n])))*\*+/")]
-    //     Comment,
-    //     //
-    //     #[regex("[0.0-9.9]+")]
-    //
-    // Logos requires one token variant to handle errors,
-    // it can be named anything you wish.
+
+    // --------------- Extras ---------------------
     #[error]
-    // We can also use this variant to define whitespace,
-    // or any other matches we wish to skip.
     #[regex(r"[ \t\n\f]+", logos::skip)]
     Undefined,
-    // #[regex]
 }
