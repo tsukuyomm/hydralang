@@ -11,9 +11,13 @@
 //===----------------------------------------------------------------------===//
 
 use logos::{Lexer, Logos, Span};
+pub struct Token {
+    span: std::ops::Range<usize>,
+    kind: TokenKind,
+}
 
 #[derive(Logos, Debug, PartialEq)]
-pub enum Token {
+pub enum TokenKind {
     // Brackets
     #[token("(")]
     LeftParen,
@@ -31,21 +35,20 @@ pub enum Token {
     // Data types
     #[regex("[a-zA-Z]+")]
     Str,
-
-    #[regex("[1-9]+")]
+    #[regex("\\d+")]
     Int,
+    #[regex("\\-?\\d+\\.\\d+")]
+    Float,
 
     #[token("true")]
     #[token("false")]
     Boolean,
-
     // comments
     //
     //     #[regex("/\*([^*]|[\r\n]|(\*+([^*/]|[\r\n])))*\*+/")]
     //     Comment,
     //     //
     //     #[regex("[0.0-9.9]+")]
-    //     Float,
     //
     // Logos requires one token variant to handle errors,
     // it can be named anything you wish.
@@ -53,6 +56,6 @@ pub enum Token {
     // We can also use this variant to define whitespace,
     // or any other matches we wish to skip.
     #[regex(r"[ \t\n\f]+", logos::skip)]
-    Error,
+    Undefined,
     // #[regex]
 }
