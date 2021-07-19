@@ -12,7 +12,7 @@
 
 mod lexer;
 pub mod run {
-    use super::lexer::Token;
+    use super::lexer::TokenKind;
     use logos::Logos;
     use std::env;
     use std::fs::File;
@@ -39,7 +39,7 @@ pub mod run {
         // Read the contents of the file and assign contents to it
         file.read_to_string(&mut contents).unwrap();
 
-        for token in Token::lexer(&contents) {
+        for token in TokenKind::lexer(&contents) {
             dbg!(token);
         }
     }
