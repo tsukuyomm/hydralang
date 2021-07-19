@@ -1,5 +1,5 @@
 // #[regex]
-//===----------------- lexer.rs - The file for lexical analysis --------------===//
+//===------------- lexer.rs - The file for lexical analysis, tokens ----------===//
 //
 // This source file is part of the hydralang open souce project
 //
@@ -115,6 +115,41 @@ pub enum TokenKind {
 
     #[token("/")]
     Slash,
+
+    //===------------- Logical operators -----------===
+    #[token("=")]
+    Equal,
+
+    #[token("!")]
+    Exclamation,
+
+    #[token("and")]
+    And,
+
+    #[token("or")]
+    Or,
+
+    #[token("==")]
+    IsEqual,
+
+    #[token("!=")]
+    NotEqual,
+
+    #[token("<=")]
+    LesserEqual,
+
+    #[token(">=")]
+    GreaterEqal,
+
+    #[token("_")]
+    Under,
+
+    // Brackets
+    #[token("<")]
+    LesserThan,
+
+    #[token(">")]
+    GreaterThan,
 
     // --------------- Extras ---------------------
     #[regex(r"[ \t\n\f]+", logos::skip)]
