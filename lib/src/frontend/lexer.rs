@@ -10,7 +10,6 @@
 // See https://github.com/KittyBorgX/hydralang/blob/main/CONTRIBUTORS.md for the list of hydralang project authors
 //
 //===----------------------------------------------------------------------===//
-
 use logos::{Lexer, Logos, Span};
 pub struct Token {
     span: std::ops::Range<usize>,
