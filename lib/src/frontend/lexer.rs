@@ -37,7 +37,7 @@ pub enum TokenKind {
     #[regex("[a-zA-Z]+")]
     Str,
 
-    #[regex("[a-zA-Z]")]
+    #[regex("[a-zA-Z]", priority = 2)]
     Char,
 
     #[regex("[0-9]+")]
