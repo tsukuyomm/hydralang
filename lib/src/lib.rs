@@ -8,7 +8,7 @@
 // See https://github.com/KittyBorgX/hydralang/blob/main/LICENSE for license information
 // See https://github.com/KittyBorgX/hydralang/blob/main/CONTRIBUTORS.md for the list of hydralang project authors
 //
-//===----------------------------------------------------------------------===//
+//===--------------------------------------------------------------------------===//
 
 #[cfg(test)]
 mod tests {
