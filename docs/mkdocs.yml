@@ -1,0 +1,35 @@
+site_name: Hydralang
+plugins:
+  - search
+theme:
+  palette:
+
+    - scheme: slate
+      primary: black
+      toggle:
+        icon: material/toggle-switch-off-outline
+        name: Switch to light mode
+    - scheme: default
+      toggle:
+        icon: material/toggle-switch
+        name: Switch to dark mode
+  name: material
+  features:
+    - navigation.instant
+    - navigation.tracking
+    - search.suggest
+    - search.highlight
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/KittyBorgX/hydralang
+    - icon: fontawesome/brands/discord
+      link: https://discord.gg/xfnnEVyCgv
+
+
+repo_url: https://github.com/KittyBorgX/hydralang
+repo_name: KittyBorgX/hydralang
+
+
+nav:
+- Getting started : index.md
